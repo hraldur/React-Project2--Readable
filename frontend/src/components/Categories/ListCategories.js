@@ -9,7 +9,12 @@ export default function ListCategories({ categories }) {
       {Object.keys(categories).length > 0 &&
         categories.categories.map(category => (
           <ul key={category.name}>
-            <li>{category.name}</li>
+            <li>
+              {" "}
+              <Link to={`/${category.path}/posts`} className="link">
+                <button>{category.name}</button>
+              </Link>
+            </li>
           </ul>
         ))}
     </div>

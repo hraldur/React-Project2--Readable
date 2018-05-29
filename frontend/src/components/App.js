@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { asyncGetCategories } from "../actions/";
+import { asyncGetCategories, asyncGetPosts } from "../actions/";
 
 import "./App.css";
 import Categories from "./Categories/Categories";
@@ -9,6 +9,7 @@ import Categories from "./Categories/Categories";
 class App extends Component {
   componentWillMount() {
     this.props.getCategories();
+    this.props.getPosts();
   }
 
   render() {
@@ -26,13 +27,15 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    categories: state.categories
+    categories: state.categories,
+    posts: state.posts
   };
 };
 
 function mapDispatchToProps(dispatch) {
   return {
-    getCategories: asyncGetCategories(dispatch)
+    getCategories: asyncGetCategories(dispatch),
+    getPosts: asyncGetPosts(dispatch)
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);

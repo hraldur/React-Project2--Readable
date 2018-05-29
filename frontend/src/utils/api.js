@@ -7,7 +7,13 @@ const api = {
     axios
       .get("categories")
       .then(response => response.data)
+      .then(data => data),
+
+  getPosts: () =>
+    axios
+      .get("posts")
+      .then(response => response.data)
       .then(data => data)
-}
+};
 
 export default api;
