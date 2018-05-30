@@ -19,6 +19,12 @@ const api = {
     axios
       .get(`${category}/posts`)
       .then(response => response.data)
+      .then(data => data),
+      
+  getSinglePost: postId =>
+    axios
+      .get(`posts/${postId}`)
+      .then(response => response.data)
       .then(data => data)
 };
 

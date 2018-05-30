@@ -6,6 +6,7 @@ import { asyncGetCategories, asyncGetPosts } from "../actions/";
 import "./App.css";
 import Categories from "./Categories/Categories";
 import Posts from "./Posts/Posts";
+import SinglePost from "./Posts/SinglePost";
 
 class App extends Component {
   componentWillMount() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path={path} key={path} component={Categories} />
           ))}
           <Route exact path="/:category/posts" component={Posts} />
+          <Route exact path="/posts/:id" component={SinglePost} />
         </div>
       </Router>
     );
