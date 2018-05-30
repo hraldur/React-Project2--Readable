@@ -13,6 +13,12 @@ const api = {
     axios
       .get("posts")
       .then(response => response.data)
+      .then(data => data),
+
+  getPostsByCategory: category =>
+    axios
+      .get(`${category}/posts`)
+      .then(response => response.data)
       .then(data => data)
 };
 

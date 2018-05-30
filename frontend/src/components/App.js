@@ -5,6 +5,7 @@ import { asyncGetCategories, asyncGetPosts } from "../actions/";
 
 import "./App.css";
 import Categories from "./Categories/Categories";
+import Posts from "./Posts/Posts";
 
 class App extends Component {
   componentWillMount() {
@@ -19,6 +20,7 @@ class App extends Component {
           {["/", "/categories"].map(path => (
             <Route exact path={path} key={path} component={Categories} />
           ))}
+          <Route exact path="/:category/posts" component={Posts} />
         </div>
       </Router>
     );
