@@ -4,7 +4,8 @@ Readable is a content and comment web app that allows users to post content to p
 
 ### Install
 
-```https://github.com/hraldur/React-Project2--Readable.git
+```
+git clone https://github.com/hraldur/React-Project2--Readable.git
 cd React-Project2--Readable
 npm install
 npm start
