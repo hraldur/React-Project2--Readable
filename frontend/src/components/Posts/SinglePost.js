@@ -3,10 +3,15 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { asyncGetSinglePost } from "../../actions/";
-
+import { Row, Col } from "react-bootstrap";
+import RaisedButton from "material-ui/RaisedButton";
+import Paper from "material-ui/Paper";
+import Voting from "./Voting";
+import DeletePost from "./DeletePost";
+import EditPost from "./EditPost";
 import ListCategories from "../Categories/ListCategories";
 import ListSinglePost from "./ListSinglePost";
-
+import ListComments from "../Comments/ListComments";
 
 class SinglePost extends Component {
   componentDidMount() {
@@ -15,17 +20,50 @@ class SinglePost extends Component {
 
   render() {
     return (
-      <div>
-        <h1 className="titleStyle">Readable</h1>
+      <Row>
+        <Col md={12}>
+          <h1 className="titleStyle">Readable</h1>
+        </Col>
+        <Col md={3}>
+          <ListCategories categories={this.props.categories} />
+          <RaisedButton className="postBtn">
+            <Link to="/posts" className="link">
+              {" "}
+              New Post{" "}
+            </Link>
+          </RaisedButton>
+        </Col>
 
-        <ListCategories categories={this.props.categories} />
-      
-        <ListSinglePost
-          post={this.props.posts.post}
-          postId={this.props.postId}
-        />
+        <Col md={9}>
+          <Paper style={paperStyle}>
+            <ListSinglePost
+              post={this.props.posts.post}
+              postId={this.props.postId}
+            />
+            <Row>
+              <Col md={1.5}>
+                <Link to="/comments" className="link">
+                  <RaisedButton>Comment</RaisedButton>
+                </Link>
+              </Col>
+              <Col md={3}>
+                <Voting />
+              </Col>
+            </Row>
+            <Row>
+              <Col md={9} />
+              <Col md={3}>
+                <EditPost />
+                <DeletePost postId={this.props.postId} />
+              </Col>
+            </Row>
+          </Paper>
 
-      </div>
+          <Col md={12}>
+            <ListComments postId={this.props.postId} />
+          </Col>
+        </Col>
+      </Row>
     );
   }
 }
@@ -44,3 +82,10 @@ function mapDispatchToProps(dispatch, ownProps) {
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);
+
+const paperStyle = {
+  display: "inline-block",
+  margin: "0px 32px 16px 0px",
+  padding: "16px 16px 16px 32px",
+  width: "100%"
+};

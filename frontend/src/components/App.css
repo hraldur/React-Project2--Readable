@@ -1,28 +1,53 @@
-.App {
+html,
+body,
+.root {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+}
+
+body,
+.app {
+  background: white;
+}
+
+.textField {
+  padding: 6px 6px;
+  margin: 8px;
+}
+.raisedButton {
+  margin: 8px;
+}
+/* main page */
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.vote {
+  padding-top: 6px;
+}
+
+.editBtn,
+.deleteBtn {
+  color: #d3d3d3;
   text-align: center;
+  padding: 10px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.postBtn {
+  width: 100%;
+  margin: 0px 32px 16px 30px;
+  padding: 16px 16px 16px 16px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.titleStyle {
+  text-align: center;
+  margin: 20px;
 }

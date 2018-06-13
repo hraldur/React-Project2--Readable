@@ -3,10 +3,10 @@ export const GET_POSTS = "GET_POSTS";
 export const GET_POSTS_BY_CATEGORY = "GET_POSTS_BY_CATEGORY";
 export const GET_SINGLE_POST = "GET_SINGLE_POST";
 
-// export const ADD_POST = "ADD_POST";
-// export const VOTE_POST = "VOTE_POST";
-// export const DELETE_POST = "DELETE_POST";
-// export const EDIT_POST = "EDIT_POST";
+export const ADD_POST = "ADD_POST";
+export const VOTE_POST = "VOTE_POST";
+export const DELETE_POST = "DELETE_POST";
+export const EDIT_POST = "EDIT_POST";
 
 export const getPosts = posts => {
   return {
@@ -34,7 +34,6 @@ export const asyncGetPostsByCategory = (dispatch, category) => () => {
 };
 
 export const getSinglePost = (post, postId) => {
-  console.log(post, postId);
   return {
     type: GET_SINGLE_POST,
     post: post,
@@ -44,4 +43,45 @@ export const getSinglePost = (post, postId) => {
 
 export const asyncGetSinglePost = (dispatch, postId) => () => {
   api.getSinglePost(postId).then(post => dispatch(getSinglePost(post, postId)));
+};
+
+export const addPost = ({ newPost }) => {
+  return {
+    type: ADD_POST,
+    post: newPost
+  };
+};
+
+export const asyncAddPost = dispatch => newPost => {
+  api.addPost(newPost).then(post => dispatch(addPost(post)));
+};
+
+export const votePost = status => {
+  return {
+    type: VOTE_POST
+  };
+};
+
+export const asyncVotePost = dispatch => (postId, option) => {
+  api.votePost(postId, option).then(status => dispatch(votePost(status)));
+};
+
+export const deletePost = post => {
+  return {
+    type: DELETE_POST
+  };
+};
+
+export const asyncDeletePost = dispatch => postId => {
+  api.deletePost(postId).then(post => dispatch(votePost(post)));
+};
+
+export const editPost = status => {
+  return {
+    type: EDIT_POST
+  };
+};
+
+export const asyncEditPost = dispatch => (postId, title, body) => {
+  api.editPost(postId, title, body).then(status => dispatch(editPost(status)));
 };

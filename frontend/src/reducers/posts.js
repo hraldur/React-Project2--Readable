@@ -2,6 +2,10 @@ import {
   GET_POSTS,
   GET_POSTS_BY_CATEGORY,
   GET_SINGLE_POST,
+  ADD_POST,
+  VOTE_POST,
+  DELETE_POST,
+  EDIT_POST
 } from "../actions/posts";
 
 const posts = (state = {}, action) => {
@@ -23,6 +27,39 @@ const posts = (state = {}, action) => {
       return {
         ...state,
         post
+      };
+    case ADD_POST:
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          [postId]: post
+        }
+      };
+    case VOTE_POST:
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          [postId]: post
+        }
+      };
+
+    case DELETE_POST:
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          [postId]: post
+        }
+      };
+    case EDIT_POST:
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          [postId]: post
+        }
       };
     default:
       return state;
