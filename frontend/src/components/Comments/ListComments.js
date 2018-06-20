@@ -9,7 +9,6 @@ import EditComment from "./EditComment";
 export default function ListComments(comments) {
   return (
     <div>
-      {console.log(comments.posts)}
 
       {comments.posts.map(comment => (
         <Paper style={paperStyle} key={comment.id}>
@@ -22,7 +21,6 @@ export default function ListComments(comments) {
             <Row>
               <Col md={9} />
               <Col md={3}>
-                {console.log("Comment", comment)}
                 <EditComment comment={comment} />
                 <DeleteComment commentId={comment.id} />
               </Col>

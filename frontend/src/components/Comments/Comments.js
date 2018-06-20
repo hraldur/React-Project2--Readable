@@ -12,7 +12,6 @@ class Comments extends Component {
   }
 
   validateComments = comments => {
-    // console.log("comments", comments)
     let validComments = [];
     if (comments[Object.keys(comments).length - 1] === undefined) {
       let counter = 0;
@@ -31,7 +30,6 @@ class Comments extends Component {
   render() {
     return (
       <div>
-        {/* {console.log("comments", this.props.comments.comments)} */}
         {typeof this.props.comments.comments !== "undefined" &&
           this.validateComments(this.props.comments.comments)}
       </div>

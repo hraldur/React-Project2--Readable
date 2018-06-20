@@ -10,7 +10,6 @@ export function setTime(timestamp) {
 
 
 export default function validatePosts(posts) {
-  console.log("posts", posts)
   let validPosts = [];
   if (posts[Object.keys(posts).length - 1] === undefined) {
     let counter = 0;
