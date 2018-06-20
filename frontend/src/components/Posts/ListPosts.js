@@ -3,11 +3,18 @@ import { Link } from "react-router-dom";
 import Paper from "material-ui/Paper";
 import { Row, Col } from "react-bootstrap";
 
+import DeletePost from "./DeletePost";
+import EditPost from "./EditPost";
+import Voting from "./Voting";
+
 export default function ListPosts({ posts }) {
+  console.log("LP", posts)
   return (
+
     <Row>
       <Col md={12}>
         <ul className="list">
+
           {typeof posts !== "undefined" &&
             posts.map(post => (
               <Paper style={paperStyle} key={post.id}>
@@ -24,7 +31,18 @@ export default function ListPosts({ posts }) {
                     <Col md={3}>
                       <h6>Score {post.voteScore}</h6>
                     </Col>
+
                   </Row>
+                  <Row>
+                    <Col md={3}>
+                      <Voting post={post} />
+                    </Col>
+                  <Col md={3} />
+                  <Col md={3}>
+                    <EditPost post={post}  />
+                    <DeletePost post={post} />
+                  </Col>
+                </Row>
                 </li>
               </Paper>
             ))}

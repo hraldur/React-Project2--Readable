@@ -26,8 +26,12 @@ class DeleteComment extends Component {
   };
 
   deleting = () => {
-    const commentId = this.props.comments.comments.id;
+    const commentId = this.props.commentId;
     this.props.deleteComment(commentId);
+    this.setState({
+      modalIsOpen: false
+    });
+    javascript:window.location.reload()
   };
 
   render() {
@@ -43,23 +47,18 @@ class DeleteComment extends Component {
             style={style}
           >
             <form>
-              {typeof this.props.comments.comment !== "undefined" && (
+
                 <div>
                   <h4>Are you sure you want to delete this comment?</h4>
 
                   <RaisedButton type="button" onClick={() => this.deleting()}>
-                    <Link
-                      to={`/posts/${this.props.posts.posts.id}`}
-                      className="link"
-                    >
                       Delete
-                    </Link>
                   </RaisedButton>
                   <RaisedButton type="button" onClick={this.closeModal}>
                     Cancel
                   </RaisedButton>
                 </div>
-              )}
+
             </form>
           </Modal>
         </Col>

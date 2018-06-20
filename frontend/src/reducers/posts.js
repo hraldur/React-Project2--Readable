@@ -6,7 +6,7 @@ import {
   VOTE_POST,
   DELETE_POST,
   EDIT_POST
-} from "../actions/posts";
+} from "../actions/types";
 
 const posts = (state = {}, action) => {
   const { posts, category, postId, post } = action;

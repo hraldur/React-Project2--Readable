@@ -1,11 +1,12 @@
 import api from "../utils/api";
-export const GET_COMMENTS = "GET_COMMENTS";
-export const GET_SINGLE_COMMENT = "GET_SINGLE_COMMENT";
-
-export const ADD_COMMENT = "ADD_COMMENT";
-export const VOTE_COMMENT = "VOTE_COMMENT";
-export const DELETE_COMMENT = "DELETE_COMMENT";
-export const EDIT_COMMENT = "EDIT_COMMENT";
+import {
+  GET_COMMENTS,
+  GET_SINGLE_COMMENT,
+  ADD_COMMENT,
+  VOTE_COMMENT,
+  DELETE_COMMENT,
+  EDIT_COMMENT
+} from "./types";
 
 export const getComments = (comments, postId) => {
   return {

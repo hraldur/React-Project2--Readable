@@ -24,6 +24,7 @@ class EditComment extends Component {
 
   openModal = () => {
     let comment = {};
+    console.log(this.props)
     comment["body"] = this.props.comment.body;
     this.setState({
       modalIsOpen: true,
@@ -47,6 +48,7 @@ class EditComment extends Component {
     this.props.editComment(commentId, timestamp, body);
 
     this.setState({ modalIsOpen: false });
+    javascript:window.location.reload()
   };
 
   render() {
@@ -55,7 +57,7 @@ class EditComment extends Component {
         <RaisedButton onClick={this.openModal}>
           <h6 className="editBtn">Edit</h6>
         </RaisedButton>
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
+        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={style}>
           <Row>
             <form>
               <Col md={12}>
@@ -85,7 +87,7 @@ class EditComment extends Component {
 const mapStateToProps = state => {
 
   return {
-    comment: state.comments.comment
+    comments: state.comments
   };
 };
 
@@ -96,3 +98,13 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditComment);
+
+
+const style = {
+  content: {
+    border: "0",
+    bottom: "auto",
+    left: "45%",
+    top: "30%"
+  }
+};

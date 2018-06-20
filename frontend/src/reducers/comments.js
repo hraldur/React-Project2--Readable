@@ -5,7 +5,7 @@ import {
   VOTE_COMMENT,
   DELETE_COMMENT,
   EDIT_COMMENT
-} from "../actions/comments";
+} from "../actions/types";
 
 const comments = (state = {}, action) => {
   const { comments, postId, commentId, comment } = action;

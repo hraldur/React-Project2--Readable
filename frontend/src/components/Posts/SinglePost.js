@@ -11,7 +11,7 @@ import DeletePost from "./DeletePost";
 import EditPost from "./EditPost";
 import ListCategories from "../Categories/ListCategories";
 import ListSinglePost from "./ListSinglePost";
-import ListComments from "../Comments/ListComments";
+import Comments from "../Comments/Comments";
 
 class SinglePost extends Component {
   componentDidMount() {
@@ -53,14 +53,16 @@ class SinglePost extends Component {
             <Row>
               <Col md={9} />
               <Col md={3}>
-                <EditPost />
+                <EditPost post={this.props.posts.post}/>
                 <DeletePost postId={this.props.postId} />
               </Col>
             </Row>
           </Paper>
 
           <Col md={12}>
-            <ListComments postId={this.props.postId} />
+            <Comments postId={this.props.postId} />
+            {/* {typeof this.props.postId !== "undefined" &&
+              validatePosts(this.props.postId)} */}
           </Col>
         </Col>
       </Row>

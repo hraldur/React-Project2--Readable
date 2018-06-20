@@ -26,6 +26,10 @@ body,
   text-decoration: none;
 }
 
+.link:active {
+  color: #ECDB54
+}
+
 .list {
   list-style-type: none;
 }
@@ -50,4 +54,8 @@ body,
 .titleStyle {
   text-align: center;
   margin: 20px;
+}
+
+.orderBy {
+  padding-left: 40px;
 }

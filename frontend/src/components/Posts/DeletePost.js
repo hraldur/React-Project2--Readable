@@ -26,9 +26,12 @@ class DeletePost extends Component {
   };
 
   deleting = () => {
-
-    const postId = this.props.posts.post.id;
+    const postId = this.props.post.id;
     this.props.deletePost(postId);
+    this.setState({
+      modalIsOpen: false
+    });
+    javascript:window.location.reload()
   };
 
   render() {
@@ -44,20 +47,18 @@ class DeletePost extends Component {
             style={style}
           >
             <form>
-              {typeof this.props.posts.post !== "undefined" && (
-                <div>
-                  <h4>Are you sure you want to delete this post?</h4>
+              <div>
+                <h4>Are you sure you want to delete this post?</h4>
 
-                  <RaisedButton type="button" onClick={() => this.deleting()}>
-                    <Link to={`/`} className="link">
-                      Delete
-                    </Link>
-                  </RaisedButton>
-                  <RaisedButton type="button" onClick={this.closeModal}>
-                    Cancel
-                  </RaisedButton>
-                </div>
-              )}
+                <RaisedButton type="button" onClick={() => this.deleting()}>
+                  <Link to={`/`} className="link">
+                    Delete
+                  </Link>
+                </RaisedButton>
+                <RaisedButton type="button" onClick={this.closeModal}>
+                  Cancel
+                </RaisedButton>
+              </div>
             </form>
           </Modal>
         </Col>

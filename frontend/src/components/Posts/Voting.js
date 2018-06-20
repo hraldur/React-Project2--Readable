@@ -29,15 +29,15 @@ class Voting extends Component {
   };
 
   voting = vote => {
-    const post = this.props.posts.post;
-    let newVote = this.props.posts.post.voteScore;
+    const post = this.props.post;
+    let newVote = this.props.post.voteScore;
     if (vote === "upVote") {
       newVote = newVote + 1;
     } else if (vote === "downVote") {
       newVote = newVote - 1;
     }
     post["voteScore"] = newVote;
-    const postId = this.props.posts.post.id;
+    const postId = this.props.post.id;
     this.closeModal();
     this.props.votePost(postId, vote);
   };
@@ -53,9 +53,10 @@ class Voting extends Component {
             style={style}
           >
             <form>
-              {typeof this.props.posts.post !== "undefined" && (
+              {/* {console.log(this.props)} */}
+              {typeof this.props.post !== "undefined" && (
                 <div>
-                  <h5>{this.props.posts.post["voteScore"]}</h5>
+                  <h5>{this.props.post["voteScore"]}</h5>
                   <RaisedButton
                     type="button"
                     onClick={() => this.voting("upVote")}
@@ -74,9 +75,9 @@ class Voting extends Component {
           </Modal>
         </Col>
         <Col md={4}>
-          {typeof this.props.posts.post !== "undefined" && (
+          {typeof this.props.post !== "undefined" && (
             <div className="vote">
-              <h5>{this.props.posts.post["voteScore"]}</h5>
+              <h5>{this.props.post["voteScore"]}</h5>
             </div>
           )}
         </Col>

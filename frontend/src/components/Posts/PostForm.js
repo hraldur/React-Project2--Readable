@@ -23,7 +23,8 @@ class PostForm extends Component {
       voteScore: 0,
       deleted: false,
       commentCount: 0
-    }
+    },
+    alertMsg: null
   };
 
   componentWillMount() {
@@ -55,8 +56,26 @@ class PostForm extends Component {
     }
   };
 
-  render() {
+  validPost = () => {
     const { addPost } = this.props;
+    const post = this.state.post;
+    if (
+      post["category"] === "null" ||
+      post["title"] === null ||
+      post["body"] === null ||
+      post["author"] === null
+    ) {
+      const alertMsg = "Please fill in all forms!"
+      this.setState({ alertMsg: alertMsg });
+    } else {
+      addPost(this.state.post);
+      const alertMsg = "Your post has been successfully added"
+      this.setState({ alertMsg: alertMsg });
+    }
+  };
+
+  render() {
+
     return (
       <div>
         <Row>
@@ -101,22 +120,20 @@ class PostForm extends Component {
                   ))}
               </SelectField>
             </Col>
+            {typeof this.state.alertMsg !== null &&
+            <h3 style={{color:'red'}}>{this.state.alertMsg}</h3>}
             <Row>
               <Col md={6}>
                 <RaisedButton
                   label="Add Post"
-                  type="submit"
-                  onClick={() => addPost(this.state.post)}
+                  type="button"
+                  onClick={() => this.validPost()}
                 />
               </Col>
               <Col md={6}>
                 <Link to="/" className="link">
-                <RaisedButton>
-
-                    Go Back
-
-                </RaisedButton>
-                  </Link>
+                  <RaisedButton>Go Back</RaisedButton>
+                </Link>
               </Col>
             </Row>
           </form>

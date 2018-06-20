@@ -8,7 +8,7 @@ import Categories from "./Categories/Categories";
 import Posts from "./Posts/Posts";
 import SinglePost from "./Posts/SinglePost";
 import SingleComment from "./Comments/SingleComment";
-import ListComments from "./Comments/ListComments";
+import Comments from "./Comments/Comments";
 import PostForm from "./Posts/PostForm";
 import CommentForm from "./Comments/CommentForm";
 
@@ -30,7 +30,7 @@ class App extends Component {
             <Route exact path="/posts" component={PostForm} />
             <Route exact path="/comments" component={CommentForm} />
             <Route exact path="/posts/:id" component={SinglePost} />
-            <Route exact path="/posts/:id/comments" component={ListComments} />
+            <Route exact path="/posts/:id/comments" component={Comments} />
             <Route exact path="/comments/:id" component={SingleComment} />
           </div>
         </Router>

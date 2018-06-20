@@ -22,8 +22,9 @@ class EditPost extends Component {
 
   openModal = () => {
     let post = {};
-    post["title"] = this.props.posts.post.title;
-    post["body"] = this.props.posts.post.body;
+    console.log(this.props.post)
+    post["title"] = this.props.post.title;
+    post["body"] = this.props.post.body;
     this.setState({
       modalIsOpen: true,
       post: post
@@ -39,12 +40,13 @@ class EditPost extends Component {
   };
 
   closeModal = () => {
-    const postId = this.props.posts.post.id;
+    const postId = this.props.post.id;
     const posts = this.state.post;
     const title = posts["title"];
     const body = posts["body"];
     this.props.editPost(postId, title, body);
     this.setState({ modalIsOpen: false });
+    javascript:window.location.reload()
   };
 
   render() {
