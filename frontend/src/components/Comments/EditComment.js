@@ -5,7 +5,6 @@ import Modal from "react-modal";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import { Row, Col } from "react-bootstrap";
-// import { Link } from "react-router-dom";
 
 import { asyncEditComment } from "../../actions/";
 
@@ -24,7 +23,6 @@ class EditComment extends Component {
 
   openModal = () => {
     let comment = {};
-    console.log(this.props)
     comment["body"] = this.props.comment.body;
     this.setState({
       modalIsOpen: true,

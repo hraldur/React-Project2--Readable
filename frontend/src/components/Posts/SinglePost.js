@@ -48,7 +48,7 @@ class SinglePost extends Component {
               </Col>
 
             </Row>)}
-            <Row> 
+            <Row>
 
               <Col md={1.5}>
                 <Link to="/comments" className="link">
@@ -78,7 +78,6 @@ class SinglePost extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state, ownProps)
   return {
     categories: state.categories,
     posts: state.posts,
