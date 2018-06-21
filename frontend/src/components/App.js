@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
-import { Grid } from "react-bootstrap";
+import { Grid, Row, Col } from "react-bootstrap";
 import { asyncGetCategories, asyncGetPosts } from "../actions/";
 import Categories from "./Categories/Categories";
 import Posts from "./Posts/Posts";
@@ -21,8 +21,17 @@ class App extends Component {
   render() {
     return (
       <Grid>
+
         <Router>
+
           <div>
+            <Row>
+              <Col md={12}>
+                <Link to={`/`} className="link">
+                  <h1 className="titleStyle">Readable</h1>
+                </Link>
+              </Col>
+            </Row>
             {["/", "/categories"].map(path => (
               <Route exact path={path} key={path} component={Categories} />
             ))}

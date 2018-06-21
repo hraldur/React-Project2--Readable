@@ -7,13 +7,13 @@ import RaisedButton from "material-ui/RaisedButton";
 import sortBy from "sort-by";
 
 import { asyncGetCategories, asyncGetPosts } from "../../actions/";
-// import ListAllPosts from "../Posts/ListAllPosts";
-// import ListPosts from "../Posts/ListPosts";
+
 
 import ListCategories from "./ListCategories";
 import validatePosts from "../../utils/helpers";
 
 class Categories extends Component {
+  /*eslint-disable no-script-url*/
   state = {
     sortedPosts: {}
   };
@@ -23,8 +23,7 @@ class Categories extends Component {
   }
 
   handleOrder = orderBy => {
-    const sortBy = require("sort-by"),
-      sortedPosts = this.props.posts.posts;
+    const sortedPosts = this.props.posts.posts;
     if (orderBy === "voteScore") {
       sortedPosts.sort(sortBy("-voteScore"));
     } else if (orderBy === "timestamp") {
@@ -39,11 +38,6 @@ class Categories extends Component {
   render() {
     return (
       <Grid>
-        <Row>
-          <Col md={12}>
-            <h1 className="titleStyle">Readable</h1>
-          </Col>
-        </Row>
         <Row>
           <Col md={3}>
             <Row>
@@ -60,8 +54,7 @@ class Categories extends Component {
             </Row>
           </Col>
           <Col md={9}>
-            {/* <ListAllPosts posts={this.props.posts.posts} /> */}
-            {/* <ListPosts posts={this.props.posts.posts} /> */}
+
             <span className="orderBy">
               Sort by:&nbsp;
               <a

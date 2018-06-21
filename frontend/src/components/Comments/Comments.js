@@ -1,7 +1,6 @@
 import React from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { asyncGetComments } from "../../actions/";
 
 import ListComments from "./ListComments";

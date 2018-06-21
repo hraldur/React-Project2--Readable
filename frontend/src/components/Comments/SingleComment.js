@@ -35,8 +35,10 @@ class SingleComment extends Component {
           <Row>
             <Col md={9} />
             <Col md={3}>
-              <DeleteComment />
-              <EditComment />
+              {console.log(this.props.comments)}
+              <EditComment comment={this.props.comments.comment}/>
+              <DeleteComment commentId={this.props.comments.id}/>
+
             </Col>
           </Row>
         </Col>

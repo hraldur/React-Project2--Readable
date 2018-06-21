@@ -1,7 +1,6 @@
 import React from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import RaisedButton from "material-ui/RaisedButton";
 import { Row, Col } from "react-bootstrap";
@@ -31,7 +30,7 @@ class DeleteComment extends Component {
     this.setState({
       modalIsOpen: false
     });
-    javascript:window.location.reload()
+    window.location.reload()
   };
 
   render() {

@@ -16,7 +16,8 @@ class CommentForm extends Component {
       body: null,
       author: null,
       parentId: null
-    }
+    },
+    alertMsg: null
   };
 
   handleChange = (propertyName, event) => {
@@ -45,8 +46,24 @@ class CommentForm extends Component {
     });
   }
 
-  render() {
+  validComment = () => {
     const { addComment } = this.props;
+    const comment = this.state.comment;
+    if (
+      comment["title"] === null ||
+      comment["body"] === null
+    ) {
+      const alertMsg = "Please fill in all forms!"
+      this.setState({ alertMsg: alertMsg });
+    } else {
+      addComment(this.state.comment);
+      const alertMsg = "Your comment has been successfully added"
+      this.setState({ alertMsg: alertMsg });
+    }
+  };
+
+  render() {
+
     return (
       <div>
         <Row>
@@ -67,13 +84,29 @@ class CommentForm extends Component {
                 value={this.getInputValue(this.state.comment.body)}
               />
             </Col>
+            {this.state.alertMsg !== null &&
+            <h3 style={{color:'red'}}>{this.state.alertMsg}</h3>}
+            {typeof this.props.posts.post === "undefined" &&(
+              <div>
+              <h3 style={{color:'red'}}>Please go back and select a post to comment on.</h3>
+              <Col md={6}>
+                <RaisedButton>
+                  <Link
+                    to={`/`}
+                    className="link"
+                  >
+                    Go Back
+                  </Link>
+                </RaisedButton>
+              </Col>
+            </div>)}
             {typeof this.props.posts.post !== "undefined" && (
               <Row>
                 <Col md={6}>
                   <RaisedButton
                     label="Comment"
                     type="button"
-                    onClick={() => addComment(this.state.comment)}
+                    onClick={() => this.validComment()}
                   />
                 </Col>
                 <Col md={6}>

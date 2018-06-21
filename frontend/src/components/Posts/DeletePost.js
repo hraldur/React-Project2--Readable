@@ -31,7 +31,7 @@ class DeletePost extends Component {
     this.setState({
       modalIsOpen: false
     });
-    javascript:window.location.reload()
+    window.location.reload()
   };
 
   render() {

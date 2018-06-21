@@ -120,7 +120,7 @@ class PostForm extends Component {
                   ))}
               </SelectField>
             </Col>
-            {typeof this.state.alertMsg !== null &&
+            {this.state.alertMsg !== null &&
             <h3 style={{color:'red'}}>{this.state.alertMsg}</h3>}
             <Row>
               <Col md={6}>

@@ -8,7 +8,6 @@ import EditPost from "./EditPost";
 import Voting from "./Voting";
 
 export default function ListPosts({ posts }) {
-  console.log("LP", posts)
   return (
 
     <Row>

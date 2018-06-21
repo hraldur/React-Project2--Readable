@@ -42,8 +42,8 @@ export const getSinglePost = (post, postId) => {
   };
 };
 
-export const asyncGetSinglePost = (dispatch, postId) => () => {
-  api.getSinglePost(postId).then(post => dispatch(getSinglePost(post, postId)));
+export const asyncGetSinglePost = (dispatch, category, postId) => () => {
+  api.getSinglePost(category, postId).then(post => dispatch(getSinglePost(post, postId)));
 };
 
 export const addPost = ({ newPost }) => {

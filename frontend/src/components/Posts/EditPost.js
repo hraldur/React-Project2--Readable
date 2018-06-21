@@ -46,7 +46,7 @@ class EditPost extends Component {
     const body = posts["body"];
     this.props.editPost(postId, title, body);
     this.setState({ modalIsOpen: false });
-    javascript:window.location.reload()
+    window.location.reload()
   };
 
   render() {

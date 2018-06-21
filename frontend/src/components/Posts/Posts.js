@@ -24,9 +24,6 @@ class Posts extends Component {
     return (
       <Grid>
         <Row>
-          <Col md={12}>
-            <h1 className="titleStyle">Readable</h1>
-          </Col>
           <Col md={3}>
             <Col md={12}>
               <ListCategories categories={this.props.categories} />

@@ -48,7 +48,7 @@ class EditComment extends Component {
     this.props.editComment(commentId, timestamp, body);
 
     this.setState({ modalIsOpen: false });
-    javascript:window.location.reload()
+    window.location.reload()
   };
 
   render() {

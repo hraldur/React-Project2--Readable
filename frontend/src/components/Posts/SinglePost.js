@@ -21,9 +21,6 @@ class SinglePost extends Component {
   render() {
     return (
       <Row>
-        <Col md={12}>
-          <h1 className="titleStyle">Readable</h1>
-        </Col>
         <Col md={3}>
           <ListCategories categories={this.props.categories} />
           <RaisedButton className="postBtn">
@@ -40,29 +37,39 @@ class SinglePost extends Component {
               post={this.props.posts.post}
               postId={this.props.postId}
             />
+            {typeof this.props.posts.post !== "undefined" && (
             <Row>
+
+              <Col md={3}>
+                <h6>{this.props.posts.post.commentCount} Comments</h6>
+              </Col>
+              <Col md={3}>
+                <h6>Score {this.props.posts.post.voteScore}</h6>
+              </Col>
+
+            </Row>)}
+            <Row> 
+
               <Col md={1.5}>
                 <Link to="/comments" className="link">
                   <RaisedButton>Comment</RaisedButton>
                 </Link>
               </Col>
               <Col md={3}>
-                <Voting />
+                <Voting post={this.props.posts.post}  />
               </Col>
             </Row>
             <Row>
               <Col md={9} />
               <Col md={3}>
                 <EditPost post={this.props.posts.post}/>
-                <DeletePost postId={this.props.postId} />
+                <DeletePost post={this.props.posts.post} />
               </Col>
             </Row>
           </Paper>
 
           <Col md={12}>
             <Comments postId={this.props.postId} />
-            {/* {typeof this.props.postId !== "undefined" &&
-              validatePosts(this.props.postId)} */}
           </Col>
         </Col>
       </Row>
@@ -71,6 +78,7 @@ class SinglePost extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state, ownProps)
   return {
     categories: state.categories,
     posts: state.posts,

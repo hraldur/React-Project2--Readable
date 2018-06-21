@@ -53,7 +53,6 @@ class Voting extends Component {
             style={style}
           >
             <form>
-              {/* {console.log(this.props)} */}
               {typeof this.props.post !== "undefined" && (
                 <div>
                   <h5>{this.props.post["voteScore"]}</h5>
@@ -73,13 +72,6 @@ class Voting extends Component {
               )}
             </form>
           </Modal>
-        </Col>
-        <Col md={4}>
-          {typeof this.props.post !== "undefined" && (
-            <div className="vote">
-              <h5>{this.props.post["voteScore"]}</h5>
-            </div>
-          )}
         </Col>
       </Row>
     );
